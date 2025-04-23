@@ -1,0 +1,37 @@
+.modal__overlay {
+  z-index: 100;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-color: var(--dimmer-color);
+}
+
+.modal__container {
+  z-index: 101;
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 40%;
+  min-width: 400px;
+  max-width: 600px;
+  aspect-ratio: 16/9;
+
+  padding: 15px;
+
+  background-color: var(--const-foreground-color);
+  border-radius: var(--border-radius);
+
+  --background-color: var(--const-foreground-color);
+  --foreground-color: var(--const-background-color);
+
+  --background-hover-color: var(--const-foreground-hover-color);
+  --foreground-hover-color: var(--const-background-hover-color);
+}

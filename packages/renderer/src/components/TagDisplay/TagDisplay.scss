@@ -1,0 +1,40 @@
+.tag-display {
+  &__container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  &__tag {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.5rem;
+
+    color: var(--text-color);
+    background: var(--foreground-color);
+    border-radius: var(--border-radius);
+
+    cursor: pointer;
+
+    transition: background 0.2s ease, color 0.2s ease;
+
+    &:hover,
+    &.highlighted {
+      color: var(--text-color-light);
+      background: var(--primary-color);
+
+      &:active {
+        background: var(--secondary-color);
+      }
+    }
+  }
+}

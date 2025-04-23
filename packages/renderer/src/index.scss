@@ -1,0 +1,149 @@
+@use "./global-stylesheets/form.scss";
+@use "./global-stylesheets/text.scss";
+@import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
+
+:root {
+  color-scheme: dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  --debug-red: rgba(255, 0, 0, 0.1);
+  --debug-green: rgba(0, 255, 0, 0.1);
+  --debug-blue: rgba(0, 0, 255, 0.1);
+
+// Constant
+--const-background-color: hsl(222, 22%, 9%);
+  --const-foreground-color: hsl(222, 22%, 18%);
+  --const-background-hover-color: hsl(222, 22%, 14%);
+  --const-foreground-hover-color: hsl(222, 22%, 23%);
+
+// Mutable
+--background-color: hsl(222, 22%, 9%);
+  --background-hover-color: hsl(222, 22%, 12%);
+  --background-color-active: hsl(222, 22%, 15%);
+
+  --foreground-color: hsl(222, 22%, 18%);
+  --foreground-hover-color: hsl(222, 22%, 25%);
+
+  --primary-color: hsl(243, 50%, 47%);
+  --secondary-color: hsl(239, 48%, 68%);
+
+  --accent-color: hsl(360, 82%, 67%);
+  --accent-hover-color: hsl(360, 82%, 62%);
+
+  --text-color-light: hsl(170, 75%, 98%);
+  --text-color: hsl(170, 10%, 80%);
+  --text-color-dark: hsl(170, 5%, 58%);
+
+  --dimmer-color: rgba(0, 0, 0, 0.75);
+
+  --success-color: hsl(120, 39%, 54%);
+  --success-color-50: hsla(120, 39%, 54%, 50%);
+  --error-color: hsl(0, 78%, 62%);
+  --error-color-50: hsla(0, 78%, 62%, 50%);
+  --warning-color: hsl(48, 100%, 67%);
+  --warning-color-50: hsla(48, 100%, 67%, 50%);
+  --info-color: hsl(212, 86%, 64%);
+  --info-color-50: hsl(212, 86%, 64%, 50%);
+
+  --border-radius: 5px;
+}
+
+*,
+*::before,
+*::after {
+  font-family: "Anta", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+  color: var(--text-color-light);
+
+  box-sizing: border-box !important;
+  -webkit-user-select: text;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+html,
+body {
+  position: relative;
+
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  color: var(--text-color-light);
+  background: var(--background-color);
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+
+  outline: solid 2px transparent;
+
+  transition: outline 0.2s ease;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+input,
+textarea {
+  all: unset;
+  outline: solid 2px transparent;
+
+  transition: outline 0.2s ease;
+}
+
+:focus-visible {
+  outline: solid 2px var(--accent-color);
+}
+
+::placeholder {
+  color: var(--text-color-dark);
+}
+
+:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+h1 {
+  font-family: "Anta", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: xxx-large;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 1rem;
+  padding: 0;
+
+  background: var(--foreground-color);
+
+  border-radius: var(--border-radius);
+}

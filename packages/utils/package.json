@@ -1,0 +1,12 @@
+{
+    "name": "@app/utils",
+    "description": "Various utilities",
+    "version": "1.0.0",
+    "type": "module",
+    "files": [
+        "index.js",
+        "index.d.ts",
+        "src"
+    ],
+    "main": "./index.js"
+}

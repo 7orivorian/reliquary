@@ -1,0 +1,39 @@
+.image-container {
+  position: relative;
+  display: inline-block;
+
+  width: 100%;
+  height: 100%;
+
+  cursor: pointer;
+
+  .zoomable-image {
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+  }
+}
+
+.zoomed {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--background-color);
+
+  overflow-y: scroll;
+
+  .zoomable-image {
+    max-width: 100vw;
+    max-height: 100vh;
+
+    object-fit: scale-down;
+  }
+}

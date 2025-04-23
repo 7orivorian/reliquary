@@ -1,0 +1,44 @@
+.completable-text-input__suggestions {
+  z-index: 1;
+  pointer-events: auto;
+  opacity: 1;
+
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+  margin-top: 2px;
+  padding: 0;
+
+  background-color: var(--foreground-color);
+  box-shadow: 0 0 0 2px var(--accent-color);
+  border-radius: var(--border-radius);
+
+  transform-origin: top;
+  transform: rotateX(0deg) scale(1);
+
+  transition: opacity 0.2s ease, transform 0.2s ease;
+
+  &.hidden {
+    pointer-events: none;
+    opacity: 0;
+    transform: rotateX(90deg) scale(0.75);
+  }
+
+  span {
+    padding: 0.5rem;
+    cursor: pointer;
+
+    border-radius: var(--border-radius);
+
+    transition: color 0.2s ease, background-color 0.2s ease, padding 0.2s ease;
+
+    &:hover,
+    &.active {
+      padding-left: 1rem;
+      color: var(--accent-text);
+      background-color: var(--accent-color);
+    }
+  }
+}

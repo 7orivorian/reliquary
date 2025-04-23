@@ -1,0 +1,33 @@
+.page-controls {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: center;
+  justify-content: flex-start;
+
+  padding: 15px;
+
+  width: 100%;
+
+  background: var(--foreground-color);
+  border-radius: var(--border-radius);
+
+  &__to-top {
+    margin-left: auto;
+    padding: 0.5rem;
+
+    width: 40px;
+    aspect-ratio: 1 / 1;
+
+    color: var(--text-color);
+    background: var(--primary-color);
+    border-radius: var(--border-radius);
+
+    transition: background 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      color: var(--text-color-light);
+      background: var(--secondary-color);
+    }
+  }
+}

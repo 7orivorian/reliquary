@@ -1,0 +1,92 @@
+.artist-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  --img-zoom: 1;
+
+  width: 300px;
+
+  height: 200px;
+  overflow: clip;
+
+  background: var(--background-hover-color);
+  border-radius: var(--border-radius);
+
+  cursor: pointer;
+
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 0 0 2px var(--accent-color);
+    --img-zoom: 1.1;
+
+    &:active {
+      box-shadow: 0 0 0 2px var(--accent-hover-color);
+      --img-zoom: 1.2;
+    }
+
+    .artist-card__info {
+      opacity: 1;
+    }
+  }
+
+  img {
+    margin-left: auto;
+    margin-right: auto;
+
+    width: fit-content;
+    height: 100%;
+    object-fit: scale-down;
+
+    scale: var(--img-zoom);
+
+    border-radius: var(--border-radius);
+    transition: scale 0.2s ease;
+
+    -webkit-user-drag: none;
+  }
+
+  &__info {
+    position: absolute;
+
+    opacity: 0;
+
+    font-size: small;
+
+    margin: 5px;
+    padding: 0.25rem 0.5rem;
+
+    background: var(--foreground-color);
+    border-radius: var(--border-radius);
+    color: var(--text-color);
+    text-align: center;
+
+    width: fit-content;
+    max-width: 50%;
+
+    transition: opacity 0.2s ease;
+  }
+
+  &__top-left {
+    top: 0;
+    left: 0;
+  }
+
+  &__top-right {
+    top: 0;
+    right: 0;
+  }
+
+  &__bottom-left {
+    bottom: 0;
+    left: 0;
+  }
+
+  &__bottom-right {
+    bottom: 0;
+    right: 0;
+  }
+}
