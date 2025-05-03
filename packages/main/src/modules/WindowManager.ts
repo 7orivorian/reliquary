@@ -1,6 +1,6 @@
 import type {AppModule} from '../AppModule.js';
 import {ModuleContext} from '../ModuleContext.js';
-import {BrowserWindow} from 'electron';
+import {BrowserWindow, screen} from 'electron';
 import type {AppInitConfig} from '../AppInitConfig.js';
 
 class WindowManager implements AppModule {
@@ -22,7 +22,11 @@ class WindowManager implements AppModule {
     }
 
     async createWindow(): Promise<BrowserWindow> {
+        const {width, height} = screen.getPrimaryDisplay().workAreaSize;
         const browserWindow = new BrowserWindow({
+            width,
+            height,
+            backgroundColor: '000',
             show: false, // Use the 'ready-to-show' event to show the instantiated BrowserWindow.
             webPreferences: {
                 nodeIntegration: false,
@@ -32,6 +36,8 @@ class WindowManager implements AppModule {
                 preload: this.#preload.path,
             },
         });
+
+        browserWindow.maximize();
 
         if (this.#renderer instanceof URL) {
             await browserWindow.loadURL(this.#renderer.href);
