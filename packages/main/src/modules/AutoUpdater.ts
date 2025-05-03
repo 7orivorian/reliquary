@@ -9,14 +9,14 @@ export class AutoUpdater implements AppModule {
     readonly #notification: DownloadNotification;
 
     constructor(
-        {
-            logger = null,
-            downloadNotification = undefined,
-        }:
-        {
-            logger?: Logger | null | undefined,
-            downloadNotification?: DownloadNotification
-        } = {},
+      {
+          logger = null,
+          downloadNotification = undefined,
+      }:
+      {
+          logger?: Logger | null | undefined,
+          downloadNotification?: DownloadNotification
+      } = {},
     ) {
         this.#logger = logger;
         this.#notification = downloadNotification;

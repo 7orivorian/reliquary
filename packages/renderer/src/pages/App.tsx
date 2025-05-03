@@ -20,38 +20,38 @@ import {ArtistProvider} from "../context/ArtistContext";
 const queryClient = new QueryClient();
 
 export default function App() {
-  return (
-    <>
-      <QueryClientProvider client={queryClient}>
-        <PreferenceProvider>
-          <div className="main">
-            <ArtworkProvider>
-              <ArtistProvider>
-                <TagProvider>
-                  <FileProvider>
-                    <Navbar/>
-                    <div className="page-router__content">
-                      <Routes>
-                        <Route path="/" element={<Home/>}/>
-                        <Route path="/add" element={<AddArtwork/>}/>
-                        <Route path="/search" element={<Search/>}>
-                          <Route path="artworks" element={<ArtworkSearch/>}/>
-                          <Route path="artists" element={<ArtistSearch/>}/>
-                        </Route>
-                        <Route path="/artworks" element={<Artworks/>}/>
-                        <Route path="/artworks/:artworkId" element={<ArtworkDetails/>}/>
-                        <Route path="/artists" element={<Artists/>}/>
-                        <Route path="/artists/:artistId" element={<ArtistDetails/>}/>
-                      </Routes>
-                    </div>
-                  </FileProvider>
-                </TagProvider>
-              </ArtistProvider>
-            </ArtworkProvider>
-          </div>
-          <div id="modal-root"></div>
-        </PreferenceProvider>
-      </QueryClientProvider>
-    </>
-  );
+    return (
+            <>
+                <QueryClientProvider client={queryClient}>
+                    <PreferenceProvider>
+                        <div className="main">
+                            <ArtworkProvider>
+                                <ArtistProvider>
+                                    <TagProvider>
+                                        <FileProvider>
+                                            <Navbar/>
+                                            <div className="page-router__content">
+                                                <Routes>
+                                                    <Route path="/" element={<Home/>}/>
+                                                    <Route path="/add" element={<AddArtwork/>}/>
+                                                    <Route path="/search" element={<Search/>}>
+                                                        <Route path="artworks" element={<ArtworkSearch/>}/>
+                                                        <Route path="artists" element={<ArtistSearch/>}/>
+                                                    </Route>
+                                                    <Route path="/artworks" element={<Artworks/>}/>
+                                                    <Route path="/artworks/:artworkId" element={<ArtworkDetails/>}/>
+                                                    <Route path="/artists" element={<Artists/>}/>
+                                                    <Route path="/artists/:artistId" element={<ArtistDetails/>}/>
+                                                </Routes>
+                                            </div>
+                                        </FileProvider>
+                                    </TagProvider>
+                                </ArtistProvider>
+                            </ArtworkProvider>
+                        </div>
+                        <div id="modal-root"></div>
+                    </PreferenceProvider>
+                </QueryClientProvider>
+            </>
+    );
 }

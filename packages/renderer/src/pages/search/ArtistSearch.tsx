@@ -29,10 +29,10 @@ export default function ArtistSearch() {
 
     const doSearch = () => {
         searchArtists(
-            [
-                {key: 'name', value: searchTerm},
-            ],
-            {page: (currentPage - 1), size: preferences.searchResultsPerPage},
+                [
+                    {key: 'name', value: searchTerm},
+                ],
+                {page: (currentPage - 1), size: preferences.searchResultsPerPage},
         ).then((result) => {
             setSearchResults(result.artists);
             setTotalResults(result.totalElements);
@@ -47,30 +47,30 @@ export default function ArtistSearch() {
     }, [currentPage, preferences.searchResultsPerPage, searchTerm]);
 
     return (
-        <div className="search">
-            <div className="filter-section">
-                <div className="search__header-container">
-                    <h1 className="search__header">Search {count} Artists</h1>
+            <div className="search">
+                <div className="filter-section">
+                    <div className="search__header-container">
+                        <h1 className="search__header">Search {count} Artists</h1>
+                    </div>
+                    <div className="search-bar__container">
+                        <input className="search-bar__input"
+                               type="text"
+                               placeholder="Search name or alias"
+                               value={searchTerm}
+                               onChange={(e) => setSearchTerm(e.target.value)}
+                        />
+                        <button className="search-bar__button" onClick={doSearch}>Search</button>
+                    </div>
                 </div>
-                <div className="search-bar__container">
-                    <input className="search-bar__input"
-                           type="text"
-                           placeholder="Search name or alias"
-                           value={searchTerm}
-                           onChange={(e) => setSearchTerm(e.target.value)}
-                    />
-                    <button className="search-bar__button" onClick={doSearch}>Search</button>
-                </div>
+                <div className="section-divider"></div>
+                <PaginatedList
+                        totalResults={totalResults}
+                        totalPages={totalPages}
+                        currentPage={currentPage}
+                        setCurrentPage={setCurrentPage}
+                >
+                    {searchResults.map((artist) => <ArtistCard key={artist.id} artist={artist}/>)}
+                </PaginatedList>
             </div>
-            <div className="section-divider"></div>
-            <PaginatedList
-                totalResults={totalResults}
-                totalPages={totalPages}
-                currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
-            >
-                {searchResults.map((artist) => <ArtistCard key={artist.id} artist={artist} />)}
-            </PaginatedList>
-        </div>
     );
 }

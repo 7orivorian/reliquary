@@ -83,69 +83,69 @@ export default function ArtworkEditor({
     };
 
     return (
-        <div className="save-artwork">
-            <div className="save-artwork__header">
-                <p className="save-artwork__header-text">Save Artwork</p>
-            </div>
-            <div className="save-artwork__buttons">
-                <button className="save-artwork__button save" onClick={submitForm}>Save</button>
-                <button className="save-artwork__button cancel" onClick={cancel}>Cancel</button>
-            </div>
-            <div className="save-artwork__img-container">
-                <img className="save-artwork__img"
-                     src={displayImg}
-                     alt="img_preview"
-                />
-            </div>
-            <div className="save-artwork__form-container">
-                <div className="save-artwork__form-part">
-                    <label htmlFor="title" className="save-artwork__form-label">Title</label>
-                    <input id="title"
-                           className="save-artwork__form-input"
-                           type="text"
-                           placeholder="e.g. Aloy at Dawn"
-                           autoFocus
-                           value={title}
-                           onChange={(e) => setTitle(e.target.value)}
+            <div className="save-artwork">
+                <div className="save-artwork__header">
+                    <p className="save-artwork__header-text">Save Artwork</p>
+                </div>
+                <div className="save-artwork__buttons">
+                    <button className="save-artwork__button save" onClick={submitForm}>Save</button>
+                    <button className="save-artwork__button cancel" onClick={cancel}>Cancel</button>
+                </div>
+                <div className="save-artwork__img-container">
+                    <img className="save-artwork__img"
+                         src={displayImg}
+                         alt="img_preview"
                     />
                 </div>
-                <div className="save-artwork__form-part">
-                    <label htmlFor="description" className="save-artwork__form-label">Description</label>
-                    <textarea id="description"
-                              className="save-artwork__form-input"
-                              placeholder="e.g. Splash art of Horizon Zero Dawn"
-                              value={description}
-                              onChange={(e) => setDescription(e.target.value)}
-                    />
-                </div>
-                <div className="save-artwork__form-part">
-                    <label htmlFor="rating" className="save-artwork__form-label">Rating</label>
-                    <RangeSlider min={0} max={10} value={rating} onChange={setRating} />
-                </div>
-                <div className="save-artwork__form-part">
-                    <label htmlFor="radio-button" className="save-artwork__form-label">Made with AI</label>
-                    <RadioButton value={madeWithAi} options={aiOptions} onChange={handleMadeWithAiChange} />
-                </div>
-                <div className="save-artwork__form-part">
-                    <label htmlFor="tag-input" className="save-artwork__form-label">Tags</label>
-                    <TagInput
-                        placeholder="e.g. abstract"
-                        availableTags={availableTags}
-                        selectedTags={selectedTags}
-                        onChange={setSelectedTags}
-                    />
-                </div>
-                <div className="save-artwork__form-part">
-                    <label htmlFor="artist-input" className="save-artwork__form-label">Artists</label>
-                    <ArtistInput
-                        placeholder="e.g. AkramBham"
-                        availableArtists={artists}
-                        selectedArtists={selectedArtists}
-                        onChange={setSelectedArtists}
-                    />
+                <div className="save-artwork__form-container">
+                    <div className="save-artwork__form-part">
+                        <label htmlFor="title" className="save-artwork__form-label">Title</label>
+                        <input id="title"
+                               className="save-artwork__form-input"
+                               type="text"
+                               placeholder="e.g. Aloy at Dawn"
+                               autoFocus
+                               value={title}
+                               onChange={(e) => setTitle(e.target.value)}
+                        />
+                    </div>
+                    <div className="save-artwork__form-part">
+                        <label htmlFor="description" className="save-artwork__form-label">Description</label>
+                        <textarea id="description"
+                                  className="save-artwork__form-input"
+                                  placeholder="e.g. Splash art of Horizon Zero Dawn"
+                                  value={description}
+                                  onChange={(e) => setDescription(e.target.value)}
+                        />
+                    </div>
+                    <div className="save-artwork__form-part">
+                        <label htmlFor="rating" className="save-artwork__form-label">Rating</label>
+                        <RangeSlider min={0} max={10} value={rating} onChange={setRating}/>
+                    </div>
+                    <div className="save-artwork__form-part">
+                        <label htmlFor="radio-button" className="save-artwork__form-label">Made with AI</label>
+                        <RadioButton value={madeWithAi} options={aiOptions} onChange={handleMadeWithAiChange}/>
+                    </div>
+                    <div className="save-artwork__form-part">
+                        <label htmlFor="tag-input" className="save-artwork__form-label">Tags</label>
+                        <TagInput
+                                placeholder="e.g. abstract"
+                                availableTags={availableTags}
+                                selectedTags={selectedTags}
+                                onChange={setSelectedTags}
+                        />
+                    </div>
+                    <div className="save-artwork__form-part">
+                        <label htmlFor="artist-input" className="save-artwork__form-label">Artists</label>
+                        <ArtistInput
+                                placeholder="e.g. AkramBham"
+                                availableArtists={artists}
+                                selectedArtists={selectedArtists}
+                                onChange={setSelectedArtists}
+                        />
+                    </div>
                 </div>
             </div>
-        </div>
     );
 }
 

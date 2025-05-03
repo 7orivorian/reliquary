@@ -1,13 +1,4 @@
 .paginated-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 15px;
-  width: 100%;
-
-  &__cards {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -15,5 +6,14 @@
     align-items: flex-start;
     gap: 15px;
     width: 100%;
-  }
+
+    &__cards {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 15px;
+        width: 100%;
+    }
 }

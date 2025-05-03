@@ -64,61 +64,61 @@ export default function ArtistInput({
 
     useEffect(() => {
         setFilteredTags(
-            availableArtists
-                .map(artist => artist.name)
-                .filter(name => !selectedArtists.includes(name))
-                .filter(name => name.startsWith(search) || name.includes(search))
-                .sort((a, b) => a.localeCompare(b))
-                .slice(0, displayLimit),
+                availableArtists
+                        .map(artist => artist.name)
+                        .filter(name => !selectedArtists.includes(name))
+                        .filter(name => name.startsWith(search) || name.includes(search))
+                        .sort((a, b) => a.localeCompare(b))
+                        .slice(0, displayLimit),
         );
     }, [search, availableArtists, selectedArtists, displayLimit]);
 
     return (
-        <div className="tag-filter__container">
-            {selectedArtists.length > 0 && (
+            <div className="tag-filter__container">
+                {selectedArtists.length > 0 && (
+                        <div className="tag-filter__tags">
+                            {selectedArtists.map((artist: string) => {
+                                        const isNew: boolean = !availableArtists
+                                                .map((artist: Artist): string => artist.name)
+                                                .includes(artist);
+                                        return (
+                                                <button key={artist}
+                                                        className={`tag-filter__tags__tag selected${isNew ? ' new' : ''}`}
+                                                        onClick={(): void => deselectArtist(artist)}
+                                                >{artist}</button>
+                                        );
+                                    },
+                            )}
+                        </div>
+                )}
+                <div className="tag-filter__input-container">
+                    <input
+                            className="tag-filter__input"
+                            type="text"
+                            placeholder={placeholder}
+                            value={search}
+                            onChange={handleSearchInputChange}
+                            onKeyDown={handleSearchInputKeyDown}
+                    />
+                </div>
                 <div className="tag-filter__tags">
-                    {selectedArtists.map((artist: string) => {
-                            const isNew: boolean = !availableArtists
-                                .map((artist: Artist): string => artist.name)
-                                .includes(artist);
-                            return (
-                                <button key={artist}
-                                        className={`tag-filter__tags__tag selected${isNew ? ' new' : ''}`}
-                                        onClick={(): void => deselectArtist(artist)}
-                                >{artist}</button>
-                            );
-                        },
+                    {filteredTags.map(tag =>
+                            <button key={tag}
+                                    className="tag-filter__tags__tag"
+                                    onClick={(): void => selectArtist(tag)}
+                            >{tag}</button>,
                     )}
                 </div>
-            )}
-            <div className="tag-filter__input-container">
-                <input
-                    className="tag-filter__input"
-                    type="text"
-                    placeholder={placeholder}
-                    value={search}
-                    onChange={handleSearchInputChange}
-                    onKeyDown={handleSearchInputKeyDown}
-                />
+                <div className="tag-filter__display-buttons">
+                    <button className="tag-filter__display-buttons__button"
+                            onClick={increaseDisplayLimit}
+                            disabled={displayLimit >= availableArtists.length}>Show More
+                    </button>
+                    <button className="tag-filter__display-buttons__button"
+                            onClick={decreaseDisplayLimit}
+                            disabled={displayLimit <= initialDisplayLimit}>Show Less
+                    </button>
+                </div>
             </div>
-            <div className="tag-filter__tags">
-                {filteredTags.map(tag =>
-                    <button key={tag}
-                            className="tag-filter__tags__tag"
-                            onClick={(): void => selectArtist(tag)}
-                    >{tag}</button>,
-                )}
-            </div>
-            <div className="tag-filter__display-buttons">
-                <button className="tag-filter__display-buttons__button"
-                        onClick={increaseDisplayLimit}
-                        disabled={displayLimit >= availableArtists.length}>Show More
-                </button>
-                <button className="tag-filter__display-buttons__button"
-                        onClick={decreaseDisplayLimit}
-                        disabled={displayLimit <= initialDisplayLimit}>Show Less
-                </button>
-            </div>
-        </div>
     );
 }

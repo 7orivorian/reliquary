@@ -1,40 +1,40 @@
 .tristatemultichoice {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 0.25rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.25rem;
 
-  &__option {
-    padding: 0.5rem;
+    &__option {
+        padding: 0.5rem;
 
-    color: var(--text-color);
-    background: var(--background-color);
-    border-radius: var(--border-radius);
+        color: var(--text-color);
+        background: var(--background-color);
+        border-radius: var(--border-radius);
 
-    transition: background 0.2s ease;
+        transition: background 0.2s ease;
 
-    cursor: pointer;
+        cursor: pointer;
 
-    &.included {
-      color: var(--text-color-light);
-      background: var(--success-color-50);
+        &.included {
+            color: var(--text-color-light);
+            background: var(--success-color-50);
 
-      &:hover {
-        background: var(--success-color);
-      }
+            &:hover {
+                background: var(--success-color);
+            }
+        }
+
+        &.excluded {
+            color: var(--text-color-light);
+            background: var(--error-color-50);
+
+            &:hover {
+                background: var(--error-color);
+            }
+        }
+
+        &:hover {
+            background: var(--success-color-50);
+        }
     }
-
-    &.excluded {
-      color: var(--text-color-light);
-      background: var(--error-color-50);
-
-      &:hover {
-        background: var(--error-color);
-      }
-    }
-
-    &:hover {
-      background: var(--success-color-50);
-    }
-  }
 }

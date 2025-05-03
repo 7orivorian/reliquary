@@ -1,6 +1,6 @@
 export default function ImageComponent({className, src, alt}: Props) {
     return (
-        <img className={className} src={src} alt={alt}/>
+            <img className={className} src={src} alt={alt}/>
     );
 }
 

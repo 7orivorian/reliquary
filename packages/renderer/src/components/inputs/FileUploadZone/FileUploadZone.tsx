@@ -21,16 +21,16 @@ export default function FileUploadZone({accept}: {
     };
 
     return (
-        <div className="upload-zone__container">
-            <button className="upload-zone__button" onClick={handleClick}>Drop images here!</button>
-            <input
-                ref={hiddenFileInput}
-                className="upload-zone__input"
-                type="file"
-                accept={accept}
-                multiple
-                onChange={handleChange}
-            />
-        </div>
+            <div className="upload-zone__container">
+                <button className="upload-zone__button" onClick={handleClick}>Drop images here!</button>
+                <input
+                        ref={hiddenFileInput}
+                        className="upload-zone__input"
+                        type="file"
+                        accept={accept}
+                        multiple
+                        onChange={handleChange}
+                />
+            </div>
     );
 }

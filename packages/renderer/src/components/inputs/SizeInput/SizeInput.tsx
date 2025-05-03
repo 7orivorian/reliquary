@@ -35,27 +35,27 @@ const SizeInput: React.FC<SizeInputProps> = ({
     };
 
     return (
-        <div className="size-input">
-            <input
-                type="number"
-                className="size-input__field"
-                value={width}
-                min={min}
-                max={max}
-                step={step}
-                onChange={(e) => handleChange(e.target.value, true)}
-            />
-            <span className="size-input__separator">×</span>
-            <input
-                type="number"
-                className="size-input__field"
-                value={height}
-                min={min}
-                max={max}
-                step={step}
-                onChange={(e) => handleChange(e.target.value, false)}
-            />
-        </div>
+            <div className="size-input">
+                <input
+                        type="number"
+                        className="size-input__field"
+                        value={width}
+                        min={min}
+                        max={max}
+                        step={step}
+                        onChange={(e) => handleChange(e.target.value, true)}
+                />
+                <span className="size-input__separator">×</span>
+                <input
+                        type="number"
+                        className="size-input__field"
+                        value={height}
+                        min={min}
+                        max={max}
+                        step={step}
+                        onChange={(e) => handleChange(e.target.value, false)}
+                />
+            </div>
     );
 };
 

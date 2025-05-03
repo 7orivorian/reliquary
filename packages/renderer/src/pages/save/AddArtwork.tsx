@@ -26,10 +26,10 @@ export default function AddArtwork() {
     };
     if (!imgFiles || imgFiles.length === 0) {
         return (
-            <input type="file" multiple onChange={handleFileChange} />
+                <input type="file" multiple onChange={handleFileChange}/>
         );
     }
     return (
-        <ArtworkEditor submit={submit} cancel={cancel} imgFile={imgFiles[0]} />
+            <ArtworkEditor submit={submit} cancel={cancel} imgFile={imgFiles[0]}/>
     );
 }

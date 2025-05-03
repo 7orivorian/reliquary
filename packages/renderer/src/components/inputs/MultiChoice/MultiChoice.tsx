@@ -21,17 +21,17 @@ export default function MultiChoice({options, selected, requireOne = false, onCh
     };
 
     return (
-        <div className="multichoice">
-            {
-                options.map((option: string, index: number) => {
-                    return (
-                        <div className={`multichoice__option ${selected.includes(option) ? 'selected' : ''}`}
-                             key={index}
-                             onClick={() => handleClick(option)}
-                        >{option}</div>
-                    );
-                })
-            }
-        </div>
+            <div className="multichoice">
+                {
+                    options.map((option: string, index: number) => {
+                        return (
+                                <div className={`multichoice__option ${selected.includes(option) ? 'selected' : ''}`}
+                                     key={index}
+                                     onClick={() => handleClick(option)}
+                                >{option}</div>
+                        );
+                    })
+                }
+            </div>
     );
 }

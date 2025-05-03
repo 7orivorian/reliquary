@@ -10,37 +10,37 @@ import {allowExternalUrls} from './modules/ExternalUrls.js';
 
 export async function initApp(initConfig: AppInitConfig) {
     const moduleRunner = createModuleRunner()
-        .init(createWindowManagerModule({initConfig, openDevTools: import.meta.env.DEV}))
-        .init(disallowMultipleAppInstance())
-        .init(terminateAppOnLastWindowClose())
-        .init(hardwareAccelerationMode({enable: false}))
-        .init(autoUpdater())
+    .init(createWindowManagerModule({initConfig, openDevTools: import.meta.env.DEV}))
+    .init(disallowMultipleAppInstance())
+    .init(terminateAppOnLastWindowClose())
+    .init(hardwareAccelerationMode({enable: false}))
+    .init(autoUpdater())
 
-        // This is currently bugged and does not work
-        // Install DevTools extension
-        // .init(chromeDevToolsExtension({extension: 'REACT_DEVELOPER_TOOLS'}))
+    // This is currently bugged and does not work
+    // Install DevTools extension
+    // .init(chromeDevToolsExtension({extension: 'REACT_DEVELOPER_TOOLS'}))
 
-        // Security
-        .init(allowInternalOrigins(
-            new Set(initConfig.renderer instanceof URL ? [initConfig.renderer.origin] : []),
-        ))
-        .init(allowExternalUrls(
-            new Set(
-                initConfig.renderer instanceof URL
-                    ? [
-                        'https://vite.dev',
-                        'https://developer.mozilla.org',
-                        'https://solidjs.com',
-                        'https://qwik.dev',
-                        'https://lit.dev',
-                        'https://react.dev',
-                        'https://preactjs.com',
-                        'https://www.typescriptlang.org',
-                        'https://vuejs.org',
-                    ]
-                    : [],
-            )),
-        );
+    // Security
+    .init(allowInternalOrigins(
+      new Set(initConfig.renderer instanceof URL ? [initConfig.renderer.origin] : []),
+    ))
+    .init(allowExternalUrls(
+      new Set(
+        initConfig.renderer instanceof URL
+          ? [
+              'https://vite.dev',
+              'https://developer.mozilla.org',
+              'https://solidjs.com',
+              'https://qwik.dev',
+              'https://lit.dev',
+              'https://react.dev',
+              'https://preactjs.com',
+              'https://www.typescriptlang.org',
+              'https://vuejs.org',
+          ]
+          : [],
+      )),
+    );
 
     await moduleRunner;
 }

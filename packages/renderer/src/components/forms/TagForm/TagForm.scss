@@ -1,72 +1,72 @@
 .tag-form-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 .tag-form-header {
-  text-align: center;
-  margin-bottom: 15px;
+    text-align: center;
+    margin-bottom: 15px;
 }
 
 .tag-form {
-  position: relative;
-  display: flex;
-  flex-direction: column;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 
-  margin-bottom: 15px;
-  width: 100%;
-  height: fit-content;
+    margin-bottom: 15px;
+    width: 100%;
+    height: fit-content;
 }
 
 .tag-form-buttons {
-  position: relative;
+    position: relative;
 
-  margin-top: auto;
-  margin-bottom: 0;
+    margin-top: auto;
+    margin-bottom: 0;
 
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-  justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: space-between;
 }
 
 .tag-form-button {
-  position: relative;
+    position: relative;
 
-  padding: 0.5rem;
+    padding: 0.5rem;
 
-  width: 100%;
+    width: 100%;
 
-  background-color: var(--primary-color);
-  color: var(--text-color-light);
-  border-radius: var(--border-radius);
-  box-shadow: none;
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    border-radius: var(--border-radius);
+    box-shadow: none;
 
-  transition: background-color 0.2s ease, scale 0.2s ease, box-shadow 0.2s ease;
+    transition: background-color 0.2s ease, scale 0.2s ease, box-shadow 0.2s ease;
 
-  &:active {
-    &:hover {
-      scale: 0.95;
+    &:active {
+        &:hover {
+            scale: 0.95;
+        }
     }
-  }
 }
 
 .tag-form-submit {
-  background-color: var(--primary-color);
+    background-color: var(--primary-color);
 
-  &:hover {
-    background-color: var(--secondary-color);
-  }
+    &:hover {
+        background-color: var(--secondary-color);
+    }
 }
 
 .tag-form-cancel {
-  background-color: var(--foreground-color);
+    background-color: var(--foreground-color);
 
-  &:hover {
-    background-color: var(--foreground-hover-color);
-  }
+    &:hover {
+        background-color: var(--foreground-hover-color);
+    }
 }

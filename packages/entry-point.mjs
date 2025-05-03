@@ -1,5 +1,5 @@
-import {initApp} from '@app/main';
-import {fileURLToPath} from 'node:url';
+import { initApp } from '@app/main';
+import { fileURLToPath } from 'node:url';
 
 if (process.env.NODE_ENV === 'development' || process.env.PLAYWRIGHT_TEST === 'true' || !!process.env.CI) {
     function showAndExit(...args) {
@@ -22,15 +22,15 @@ if (process.env.NODE_ENV === 'development' || process.env.PLAYWRIGHT_TEST === 't
  * as it receives initialization instructions rather than direct module imports.
  */
 initApp(
-    {
-        renderer: (process.env.MODE === 'development' && !!process.env.VITE_DEV_SERVER_URL) ?
-            new URL(process.env.VITE_DEV_SERVER_URL)
-            : {
-                path: fileURLToPath(import.meta.resolve('@app/renderer')),
-            },
-
-        preload: {
-            path: fileURLToPath(import.meta.resolve('@app/preload/exposed.mjs')),
+  {
+      renderer: (process.env.MODE === 'development' && !!process.env.VITE_DEV_SERVER_URL) ?
+        new URL(process.env.VITE_DEV_SERVER_URL)
+        : {
+            path: fileURLToPath(import.meta.resolve('@app/renderer')),
         },
-    },
+
+      preload: {
+          path: fileURLToPath(import.meta.resolve('@app/preload/exposed.mjs')),
+      },
+  },
 );

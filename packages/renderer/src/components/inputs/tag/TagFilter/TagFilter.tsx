@@ -96,62 +96,62 @@ export default function TagFilter({
 
     useEffect(() => {
         setFilteredTags(
-            availableTags
-                .filter(tag => !included.includes(tag))
-                .filter(tag => !excluded.includes(tag))
-                .filter(tag => tag.startsWith(search) || tag.includes(search))
-                .sort((a, b) => a.localeCompare(b))
-                .slice(0, displayLimit)
+                availableTags
+                        .filter(tag => !included.includes(tag))
+                        .filter(tag => !excluded.includes(tag))
+                        .filter(tag => tag.startsWith(search) || tag.includes(search))
+                        .sort((a, b) => a.localeCompare(b))
+                        .slice(0, displayLimit)
         );
     }, [search, availableTags, included, excluded, displayLimit]);
 
     return (
-        <div className="tag-filter__container">
-            {(included.length > 0 || excluded.length > 0) && (
-                <div className="tag-filter__tags">
-                    {included.map(tag =>
-                        <Tag
-                            key={tag}
-                            tag={tag}
-                            state={'included'}
-                            onClick={handleTagClick}
-                        />
-                    )}
-                    {excluded.map(tag =>
-                        <Tag
-                            key={tag}
-                            tag={tag}
-                            state={'excluded'}
-                            onClick={handleTagClick}
-                        />
-                    )}
-                </div>
-            )}
+            <div className="tag-filter__container">
+                {(included.length > 0 || excluded.length > 0) && (
+                        <div className="tag-filter__tags">
+                            {included.map(tag =>
+                                    <Tag
+                                            key={tag}
+                                            tag={tag}
+                                            state={'included'}
+                                            onClick={handleTagClick}
+                                    />
+                            )}
+                            {excluded.map(tag =>
+                                    <Tag
+                                            key={tag}
+                                            tag={tag}
+                                            state={'excluded'}
+                                            onClick={handleTagClick}
+                                    />
+                            )}
+                        </div>
+                )}
 
-            <div className="tag-filter__input-container">
-                <input
-                    className="tag-filter__input"
-                    type="text"
-                    placeholder="Search tags"
-                    value={search}
-                    onChange={handleSearchInputChange}
-                    onKeyDown={handleSearchInputKeyDown}
-                />
+                <div className="tag-filter__input-container">
+                    <input
+                            className="tag-filter__input"
+                            type="text"
+                            placeholder="Search tags"
+                            value={search}
+                            onChange={handleSearchInputChange}
+                            onKeyDown={handleSearchInputKeyDown}
+                    />
+                </div>
+                <div className="tag-filter__tags">
+                    {filteredTags.map(tag => <Tag key={tag} tag={tag} onClick={handleTagClick}/>)}
+                </div>
+                <div className="tag-filter__display-buttons">
+                    <button className="tag-filter__display-buttons__button"
+                            onClick={handleMoreClick}
+                            disabled={displayLimit >= availableTags.length}>Show More
+                    </button>
+                    <button className="tag-filter__display-buttons__button"
+                            onClick={handleLessClick}
+                            disabled={displayLimit <= initialDisplayLimit}>Show Less
+                    </button>
+                </div>
             </div>
-            <div className="tag-filter__tags">
-                {filteredTags.map(tag => <Tag key={tag} tag={tag} onClick={handleTagClick}/>)}
-            </div>
-            <div className="tag-filter__display-buttons">
-                <button className="tag-filter__display-buttons__button"
-                        onClick={handleMoreClick}
-                        disabled={displayLimit >= availableTags.length}>Show More
-                </button>
-                <button className="tag-filter__display-buttons__button"
-                        onClick={handleLessClick}
-                        disabled={displayLimit <= initialDisplayLimit}>Show Less
-                </button>
-            </div>
-        </div>
     );
 }
 
@@ -162,9 +162,9 @@ function Tag({tag, count = 0, state = 'none', onClick}: {
     onClick: (e: any, tag: string, state: 'included' | 'excluded' | 'none') => void;
 }) {
     return (
-        <div className={`tag-filter__tag ${state}`}
-             onClick={(e) => onClick(e, tag, state)}
-             onContextMenu={(e) => onClick(e, tag, state)}
-        >{tag + (count > 0 ? ` • ${count}` : "")}</div>
+            <div className={`tag-filter__tag ${state}`}
+                 onClick={(e) => onClick(e, tag, state)}
+                 onContextMenu={(e) => onClick(e, tag, state)}
+            >{tag + (count > 0 ? ` • ${count}` : "")}</div>
     );
 }

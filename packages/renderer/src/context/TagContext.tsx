@@ -31,9 +31,9 @@ export const TagProvider: FC<ProviderProps> = ({children}: ProviderProps) => {
     };
 
     return (
-        <TagContext.Provider value={{tags, createTags}}>
-            {children}
-        </TagContext.Provider>
+            <TagContext.Provider value={{tags, createTags}}>
+                {children}
+            </TagContext.Provider>
     );
 };
 

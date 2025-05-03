@@ -21,28 +21,28 @@ export default function PaginatedList({
     const {preferences, setSearchResultsPerPage} = usePreferences();
 
     return (
-        <div className="paginated-list">
-            <p className="paginated-list__header">{totalResults} Results</p>
-            <PageControls
-                totalPages={totalPages}
-                currentPage={currentPage}
-                resultsPerPage={preferences.searchResultsPerPage}
-                onPageChange={setCurrentPage}
-                onResultsPerPageChange={setSearchResultsPerPage}
-            />
-            <div className="paginated-list__cards">
-                {children}
-            </div>
-            {totalResults > preferences.searchResultsPerPage && preferences.searchResultsPerPage >= 15 && (
+            <div className="paginated-list">
+                <p className="paginated-list__header">{totalResults} Results</p>
                 <PageControls
-                    bottom={true}
-                    totalPages={totalPages}
-                    currentPage={currentPage}
-                    resultsPerPage={preferences.searchResultsPerPage}
-                    onPageChange={setCurrentPage}
-                    onResultsPerPageChange={setSearchResultsPerPage}
+                        totalPages={totalPages}
+                        currentPage={currentPage}
+                        resultsPerPage={preferences.searchResultsPerPage}
+                        onPageChange={setCurrentPage}
+                        onResultsPerPageChange={setSearchResultsPerPage}
                 />
-            )}
-        </div>
+                <div className="paginated-list__cards">
+                    {children}
+                </div>
+                {totalResults > preferences.searchResultsPerPage && preferences.searchResultsPerPage >= 15 && (
+                        <PageControls
+                                bottom={true}
+                                totalPages={totalPages}
+                                currentPage={currentPage}
+                                resultsPerPage={preferences.searchResultsPerPage}
+                                onPageChange={setCurrentPage}
+                                onResultsPerPageChange={setSearchResultsPerPage}
+                        />
+                )}
+            </div>
     );
 }

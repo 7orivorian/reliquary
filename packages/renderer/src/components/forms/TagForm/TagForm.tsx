@@ -50,26 +50,26 @@ export default function TagForm({tags, onSubmit}: {
     };
 
     return (
-        <div className={'tag-form-container'}>
-            <h2 className={'tag-form-header'}>Edit Tags</h2>
-            <div className={'tag-form form dark'}>
-                <label>Search or Create Tags</label>
-                <input
-                    type="text"
-                    placeholder="tag"
-                    value={tagInput}
-                    onChange={handleTagInputChange}
-                    onKeyDown={handleTagInputKeyDown}
-                />
+            <div className={'tag-form-container'}>
+                <h2 className={'tag-form-header'}>Edit Tags</h2>
+                <div className={'tag-form form dark'}>
+                    <label>Search or Create Tags</label>
+                    <input
+                            type="text"
+                            placeholder="tag"
+                            value={tagInput}
+                            onChange={handleTagInputChange}
+                            onKeyDown={handleTagInputKeyDown}
+                    />
+                </div>
+                <TagDisplay tags={tagList} highlightedTags={hlTags} onClick={handleTagClick}/>
+                <div className={'tag-form-buttons'}>
+                    <button type="submit" className={'tag-form-submit tag-form-button'} onClick={handleSave}>Save</button>
+                    <button type="button"
+                            className={'tag-form-cancel tag-form-button'}
+                            onClick={handleCancel}>Cancel
+                    </button>
+                </div>
             </div>
-            <TagDisplay tags={tagList} highlightedTags={hlTags} onClick={handleTagClick} />
-            <div className={'tag-form-buttons'}>
-                <button type="submit" className={'tag-form-submit tag-form-button'} onClick={handleSave}>Save</button>
-                <button type="button"
-                        className={'tag-form-cancel tag-form-button'}
-                        onClick={handleCancel}>Cancel
-                </button>
-            </div>
-        </div>
     );
 }

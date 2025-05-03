@@ -23,18 +23,18 @@ export function PageControls({
         onResultsPerPageChange(resultsPerPage);
     };
     return (
-        <div className="page-controls">
-            <PaginationInput
-                currentPage={currentPage}
-                totalPages={totalPages}
-                resultsPerPage={resultsPerPage}
-                onChange={onChange}
-            />
-            {bottom && (
-                <button className="page-controls__to-top" onClick={scrollToTop}>
-                    <DoubleArrowUpIcon />
-                </button>
-            )}
-        </div>
+            <div className="page-controls">
+                <PaginationInput
+                        currentPage={currentPage}
+                        totalPages={totalPages}
+                        resultsPerPage={resultsPerPage}
+                        onChange={onChange}
+                />
+                {bottom && (
+                        <button className="page-controls__to-top" onClick={scrollToTop}>
+                            <DoubleArrowUpIcon/>
+                        </button>
+                )}
+            </div>
     );
 }

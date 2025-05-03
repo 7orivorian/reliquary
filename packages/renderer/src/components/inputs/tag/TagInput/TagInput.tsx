@@ -67,58 +67,58 @@ export default function TagInput({
 
     useEffect(() => {
         setFilteredTags(
-            availableTags
-                .filter(tag => !selectedTags.includes(tag))
-                .filter(tag => tag.startsWith(search) || tag.includes(search))
-                .sort((a, b) => a.localeCompare(b))
-                .slice(0, displayLimit),
+                availableTags
+                        .filter(tag => !selectedTags.includes(tag))
+                        .filter(tag => tag.startsWith(search) || tag.includes(search))
+                        .sort((a, b) => a.localeCompare(b))
+                        .slice(0, displayLimit),
         );
     }, [search, availableTags, selectedTags, displayLimit]);
 
     return (
-        <div className="tag-filter__container">
-            {selectedTags.length > 0 && (
+            <div className="tag-filter__container">
+                {selectedTags.length > 0 && (
+                        <div className="tag-filter__tags">
+                            {selectedTags.map(tag => {
+                                        const isNew = !availableTags.includes(tag);
+                                        return (
+                                                <button key={tag}
+                                                        className={`tag-filter__tags__tag selected${isNew ? ' new' : ''}`}
+                                                        onClick={(): void => deselectTag(tag)}
+                                                >{tag}</button>
+                                        );
+                                    },
+                            )}
+                        </div>
+                )}
+                <div className="tag-filter__input-container">
+                    <input
+                            className="tag-filter__input"
+                            type="text"
+                            placeholder={placeholder}
+                            value={search}
+                            onChange={handleSearchInputChange}
+                            onKeyDown={handleSearchInputKeyDown}
+                    />
+                </div>
                 <div className="tag-filter__tags">
-                    {selectedTags.map(tag => {
-                            const isNew = !availableTags.includes(tag);
-                            return (
-                                <button key={tag}
-                                        className={`tag-filter__tags__tag selected${isNew ? ' new' : ''}`}
-                                        onClick={(): void => deselectTag(tag)}
-                                >{tag}</button>
-                            );
-                        },
+                    {filteredTags.map(tag =>
+                            <button key={tag}
+                                    className="tag-filter__tags__tag"
+                                    onClick={(): void => selectTag(tag)}
+                            >{tag}</button>,
                     )}
                 </div>
-            )}
-            <div className="tag-filter__input-container">
-                <input
-                    className="tag-filter__input"
-                    type="text"
-                    placeholder={placeholder}
-                    value={search}
-                    onChange={handleSearchInputChange}
-                    onKeyDown={handleSearchInputKeyDown}
-                />
+                <div className="tag-filter__display-buttons">
+                    <button className="tag-filter__display-buttons__button"
+                            onClick={increaseDisplayLimit}
+                            disabled={displayLimit >= availableTags.length}>Show More
+                    </button>
+                    <button className="tag-filter__display-buttons__button"
+                            onClick={decreaseDisplayLimit}
+                            disabled={displayLimit <= initialDisplayLimit}>Show Less
+                    </button>
+                </div>
             </div>
-            <div className="tag-filter__tags">
-                {filteredTags.map(tag =>
-                    <button key={tag}
-                            className="tag-filter__tags__tag"
-                            onClick={(): void => selectTag(tag)}
-                    >{tag}</button>,
-                )}
-            </div>
-            <div className="tag-filter__display-buttons">
-                <button className="tag-filter__display-buttons__button"
-                        onClick={increaseDisplayLimit}
-                        disabled={displayLimit >= availableTags.length}>Show More
-                </button>
-                <button className="tag-filter__display-buttons__button"
-                        onClick={decreaseDisplayLimit}
-                        disabled={displayLimit <= initialDisplayLimit}>Show Less
-                </button>
-            </div>
-        </div>
     );
 }

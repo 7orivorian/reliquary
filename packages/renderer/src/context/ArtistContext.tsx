@@ -22,9 +22,9 @@ export const ArtistProvider: React.FC<ProviderProps> = ({children}: ProviderProp
     }, []);
 
     return (
-        <ArtistContext.Provider value={{artists}}>
-            {children}
-        </ArtistContext.Provider>
+            <ArtistContext.Provider value={{artists}}>
+                {children}
+            </ArtistContext.Provider>
     );
 };
 

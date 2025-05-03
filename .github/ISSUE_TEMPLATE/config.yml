@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
-    -   name: Propose an idea
-        url: https://github.com/7orivorian/reliquary/discussions/categories/ideas
-        about: Discuss any ideas and feature requests
-    -   name: Ask a question
-        url: https://github.com/7orivorian/reliquary/discussions/categories/q-a
-        about: Please ask any questions here
+  - name: Propose an idea
+    url: https://github.com/7orivorian/reliquary/discussions/categories/ideas
+    about: Discuss any ideas and feature requests
+  - name: Ask a question
+    url: https://github.com/7orivorian/reliquary/discussions/categories/q-a
+    about: Please ask any questions here

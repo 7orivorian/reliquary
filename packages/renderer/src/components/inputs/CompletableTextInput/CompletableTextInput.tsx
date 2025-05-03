@@ -12,8 +12,8 @@ export default function CompletableTextInput({
 
     const sanValue: string = value.toLowerCase().substring(suggestionMatchOffset || 0);
     const validSuggestions: string[] = suggestions
-        .filter((suggestion: string): boolean => suggestion.toLowerCase().startsWith(sanValue))
-        .slice(0, suggestionLimit || suggestions.length);
+            .filter((suggestion: string): boolean => suggestion.toLowerCase().startsWith(sanValue))
+            .slice(0, suggestionLimit || suggestions.length);
 
     const handleChange = (value: string) => {
         onChange(value.trimStart());
@@ -54,27 +54,27 @@ export default function CompletableTextInput({
 
     const hasSuggestions: boolean = sanValue.length > 0 && validSuggestions.length > 0;
     return (
-        <div>
-            <input
-                type="text"
-                placeholder={placeholder}
-                value={value}
-                onChange={(e) => handleChange(e.target.value)}
-                onKeyDown={handleKeyDown}
-            />
-            <div className={`completable-text-input__suggestions${hasSuggestions ? '' : ' hidden'}`}>
-                {validSuggestions
-                    .map((suggestion: string, index: number) => {
-                        return (
-                            <span className={currentIndex === index ? 'active' : ''}
-                                  key={suggestion}
-                                  onClick={() => handleChange(suggestion)}
-                            >{suggestion}</span>
-                        );
-                    })
-                }
+            <div>
+                <input
+                        type="text"
+                        placeholder={placeholder}
+                        value={value}
+                        onChange={(e) => handleChange(e.target.value)}
+                        onKeyDown={handleKeyDown}
+                />
+                <div className={`completable-text-input__suggestions${hasSuggestions ? '' : ' hidden'}`}>
+                    {validSuggestions
+                            .map((suggestion: string, index: number) => {
+                                return (
+                                        <span className={currentIndex === index ? 'active' : ''}
+                                              key={suggestion}
+                                              onClick={() => handleChange(suggestion)}
+                                        >{suggestion}</span>
+                                );
+                            })
+                    }
+                </div>
             </div>
-        </div>
     );
 }
 

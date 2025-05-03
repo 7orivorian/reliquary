@@ -6,5 +6,5 @@
     "scripts": {
         "start": "node index.js --no-warnings"
     },
-    "files": []
+    "files": [ ]
 }

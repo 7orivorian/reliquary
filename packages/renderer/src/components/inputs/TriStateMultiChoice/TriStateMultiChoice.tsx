@@ -22,22 +22,22 @@ export default function TriStateMultiChoice({options, included, excluded, onChan
     }
 
     return (
-        <div className="tristatemultichoice">
-            {
-                options.map((option: string, index: number) => {
-                    const isIncluded = included.includes(option);
-                    const isExcluded = excluded.includes(option);
-                    const state = isIncluded ? 'included' : isExcluded ? 'excluded' : 'none';
-                    return (
-                        <div className={`tristatemultichoice__option ${state}`}
-                             key={index}
-                             onClick={() => {
-                                 handleClick(option, state);
-                             }}
-                        >{option}</div>
-                    );
-                })
-            }
-        </div>
+            <div className="tristatemultichoice">
+                {
+                    options.map((option: string, index: number) => {
+                        const isIncluded = included.includes(option);
+                        const isExcluded = excluded.includes(option);
+                        const state = isIncluded ? 'included' : isExcluded ? 'excluded' : 'none';
+                        return (
+                                <div className={`tristatemultichoice__option ${state}`}
+                                     key={index}
+                                     onClick={() => {
+                                         handleClick(option, state);
+                                     }}
+                                >{option}</div>
+                        );
+                    })
+                }
+            </div>
     );
 }

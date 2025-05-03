@@ -1,56 +1,56 @@
 form,
 .form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  width: 100%;
-
-  label {
-    margin-bottom: 0.25rem;
-    padding-left: 0.25rem;
-    font-size: small;
-
-    color: var(--text-color);
-  }
-
-  input[type="text"] {
-    position: relative;
-
-    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 
     width: 100%;
 
-    border-radius: var(--border-radius);
-    color: var(--text-color);
-    background-color: var(--foreground-color);
-    box-shadow: none;
+    label {
+        margin-bottom: 0.25rem;
+        padding-left: 0.25rem;
+        font-size: small;
 
-    transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-
-    &:host-context(.dark) {
-      background-color: var(--background-color);
+        color: var(--text-color);
     }
 
-    &:hover:not(:focus) {
-      box-shadow: 0 0 0 2px var(--foreground-color);
+    input[type="text"] {
+        position: relative;
 
-      &:host-context(.dark) {
-        box-shadow: 0 0 0 2px var(--background-color);
-      }
-    }
+        padding: 0.5rem;
 
-    &:focus {
-      color: var(--text-color-light);
-      box-shadow: 0 0 0 2px var(--accent-color);
-    }
+        width: 100%;
 
-    &:active {
-      box-shadow: 0 0 0 4px var(--accent-color);
-    }
+        border-radius: var(--border-radius);
+        color: var(--text-color);
+        background-color: var(--foreground-color);
+        box-shadow: none;
 
-    &::placeholder {
-      color: var(--text-color-dark);
+        transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+
+        &:host-context(.dark) {
+            background-color: var(--background-color);
+        }
+
+        &:hover:not(:focus) {
+            box-shadow: 0 0 0 2px var(--foreground-color);
+
+            &:host-context(.dark) {
+                box-shadow: 0 0 0 2px var(--background-color);
+            }
+        }
+
+        &:focus {
+            color: var(--text-color-light);
+            box-shadow: 0 0 0 2px var(--accent-color);
+        }
+
+        &:active {
+            box-shadow: 0 0 0 4px var(--accent-color);
+        }
+
+        &::placeholder {
+            color: var(--text-color-dark);
+        }
     }
-  }
 }

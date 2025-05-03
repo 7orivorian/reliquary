@@ -1,4 +1,4 @@
-import {build, createServer} from 'vite';
+import { build, createServer } from 'vite';
 import path from 'path';
 
 /**

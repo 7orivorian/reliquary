@@ -1,22 +1,22 @@
-import pkgJson from '../renderer/package.json' with {type: 'json'};
+import pkgJson from '../renderer/package.json' with { type: 'json' };
 import * as fs from 'node:fs';
 
 
 const step = createStepLogger();
 
 await step(
-    'Changing renderer package name to "@app/renderer"',
-    changeRendererPackageName,
+  'Changing renderer package name to "@app/renderer"',
+  changeRendererPackageName,
 );
 
 await step(
-    'Add "--base=./" flag to vite build command',
-    addTheBaseFlagToBuildCommand,
+  'Add "--base=./" flag to vite build command',
+  addTheBaseFlagToBuildCommand,
 );
 
 await step(
-    'Change the "main" and "exports" property to "./dist/index.html"',
-    addTheMainProperty,
+  'Change the "main" and "exports" property to "./dist/index.html"',
+  addTheMainProperty,
 );
 
 

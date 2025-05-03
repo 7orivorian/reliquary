@@ -54,7 +54,7 @@ export const ArtworkProvider: React.FC<ProviderProps> = ({children}: ProviderPro
                 direction: 'DESC',
             },
         }).then(
-            (artworks: ArtworkList) => setRecentlyViewedArtwork(artworks),
+                (artworks: ArtworkList) => setRecentlyViewedArtwork(artworks),
         ).catch((err: Error): void => {
             console.error('Error fetching recently viewed artworks:', err);
             setRecentlyViewedArtwork([]);
@@ -71,9 +71,9 @@ export const ArtworkProvider: React.FC<ProviderProps> = ({children}: ProviderPro
                 direction: 'DESC',
             },
         }).then(
-            (artworks: ArtworkList): ArtworkList => artworks.filter((artwork: Artwork): boolean => artwork.rating >= preferences.favoriteRating),
+                (artworks: ArtworkList): ArtworkList => artworks.filter((artwork: Artwork): boolean => artwork.rating >= preferences.favoriteRating),
         ).then(
-            (filteredArtworks: ArtworkList): void => setFavoriteArtwork(filteredArtworks),
+                (filteredArtworks: ArtworkList): void => setFavoriteArtwork(filteredArtworks),
         ).catch((err: Error): void => {
             console.error('Error fetching favorite artworks:', err);
             setFavoriteArtwork([]);
@@ -90,7 +90,7 @@ export const ArtworkProvider: React.FC<ProviderProps> = ({children}: ProviderPro
             page: 0,
             size: 10,
         }).then(
-            (artworks: ArtworkList): void => setRecentlyAddedArtwork(artworks),
+                (artworks: ArtworkList): void => setRecentlyAddedArtwork(artworks),
         ).catch((err: Error): void => {
             console.error('Error fetching recently added artworks:', err);
             setRecentlyAddedArtwork([]);
@@ -151,14 +151,14 @@ export const ArtworkProvider: React.FC<ProviderProps> = ({children}: ProviderPro
     };
 
     return (
-        <ArtworkContext.Provider value={{
-            artwork, addArtwork, updateArtwork,
-            recentlyViewedArtwork, refreshRecentlyViewed,
-            favoriteArtwork, refreshFavorites,
-            recentlyAddedArtwork, refreshRecentlyAdded,
-        }}>
-            {children}
-        </ArtworkContext.Provider>
+            <ArtworkContext.Provider value={{
+                artwork, addArtwork, updateArtwork,
+                recentlyViewedArtwork, refreshRecentlyViewed,
+                favoriteArtwork, refreshFavorites,
+                recentlyAddedArtwork, refreshRecentlyAdded,
+            }}>
+                {children}
+            </ArtworkContext.Provider>
     );
 };
 

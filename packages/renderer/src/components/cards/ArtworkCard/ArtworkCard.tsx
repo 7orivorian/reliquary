@@ -12,15 +12,15 @@ export function ArtworkCard({artwork}: Props) {
         navigateToArtwork(artwork.id, navigate);
     };
     return (
-        <button className="artwork-card" onClick={handleClick}>
-            <img src={artwork.imageUrl} alt={artwork.title} />
-            <p className="artwork-card__info artwork-card__top-left">{artwork.title}</p>
-            <p className="artwork-card__info artwork-card__top-right">{artwork.artists.map((artist: Artist): string => artist.name).join(', ')}</p>
-            <p className="artwork-card__info artwork-card__bottom-left">{artwork.format}</p>
-            <p className="artwork-card__info artwork-card__bottom-right">{artwork.width}x{artwork.height}</p>
-            {artwork.relevance && (
-                <p className="artwork-card__info artwork-card__center">{artwork.relevance}</p>
-            )}
-        </button>
+            <button className="artwork-card" onClick={handleClick}>
+                <img src={artwork.imageUrl} alt={artwork.title}/>
+                <p className="artwork-card__info artwork-card__top-left">{artwork.title}</p>
+                <p className="artwork-card__info artwork-card__top-right">{artwork.artists.map((artist: Artist): string => artist.name).join(', ')}</p>
+                <p className="artwork-card__info artwork-card__bottom-left">{artwork.format}</p>
+                <p className="artwork-card__info artwork-card__bottom-right">{artwork.width}x{artwork.height}</p>
+                {artwork.relevance && (
+                        <p className="artwork-card__info artwork-card__center">{artwork.relevance}</p>
+                )}
+            </button>
     );
 }

@@ -37,21 +37,21 @@ function hexToRgb(hex: string): RGB {
     return {
         red: (bigint >> 16) & 255,
         green: (bigint >> 8) & 255,
-        blue: bigint & 255
+        blue: bigint & 255,
     };
 }
 
 function rgbToHsl(rgb: RGB): HSL {
     let r: number = rgb.red,
-        g: number = rgb.green,
-        b: number = rgb.blue;
+      g: number = rgb.green,
+      b: number = rgb.blue;
 
     r /= 255;
     g /= 255;
     b /= 255;
 
     const max: number = Math.max(r, g, b),
-        min: number = Math.min(r, g, b);
+      min: number = Math.min(r, g, b);
     let h: number, s: number;
     const l: number = (max + min) / 2;
 
@@ -72,7 +72,7 @@ function rgbToHsl(rgb: RGB): HSL {
                 h = (r - g) / d + 4;
                 break;
             default:
-                throw new Error("Invalid color");
+                throw new Error('Invalid color');
         }
 
         h /= 6;

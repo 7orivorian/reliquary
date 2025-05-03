@@ -30,12 +30,12 @@ export const PreferenceProvider: React.FC<ProviderProps> = ({children}: Provider
     };
 
     return (
-        <PreferenceContext.Provider
-            value={{
-                preferences,
-                setSearchResultsPerPage
-            }}
-        >{children}</PreferenceContext.Provider>
+            <PreferenceContext.Provider
+                    value={{
+                        preferences,
+                        setSearchResultsPerPage
+                    }}
+            >{children}</PreferenceContext.Provider>
     );
 };
 

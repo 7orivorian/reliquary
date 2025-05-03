@@ -12,8 +12,8 @@ export function ArtistCard({artist}: Props) {
         navigateToArtist(artist.id, navigate);
     };
     return (
-        <div className="artist-card" onClick={handleClick}>
-            <h3>{artist.name}</h3>
-        </div>
+            <div className="artist-card" onClick={handleClick}>
+                <h3>{artist.name}</h3>
+            </div>
     );
 }

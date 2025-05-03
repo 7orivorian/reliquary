@@ -16,16 +16,16 @@ export default function Search() {
     };
 
     return (
-        <>
-            <div className="search__nav">
-                <button className={`search__nav-item${lastSegment === 'artworks' ? ' active' : ''}`}
-                        onClick={navToArtworkSearch}>Artwork
-                </button>
-                <button className={`search__nav-item${lastSegment === 'artists' ? ' active' : ''}`}
-                        onClick={navToArtistSearch}>Artists
-                </button>
-            </div>
-            <Outlet />
-        </>
+            <>
+                <div className="search__nav">
+                    <button className={`search__nav-item${lastSegment === 'artworks' ? ' active' : ''}`}
+                            onClick={navToArtworkSearch}>Artwork
+                    </button>
+                    <button className={`search__nav-item${lastSegment === 'artists' ? ' active' : ''}`}
+                            onClick={navToArtistSearch}>Artists
+                    </button>
+                </div>
+                <Outlet/>
+            </>
     );
 }

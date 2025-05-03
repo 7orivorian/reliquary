@@ -106,7 +106,7 @@ declare global {
     /*
     Other
     */
-    type AIGenStatus = "NO" | "POSSIBLY" | "LIKELY" | "YES";
+    type AIGenStatus = 'NO' | 'POSSIBLY' | 'LIKELY' | 'YES';
 
     type QueryParam = {
         key: string;

@@ -58,13 +58,13 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
     };
 
     return (
-        <div className="range-slider" ref={sliderRef} onMouseDown={startDrag} onTouchStart={startDrag}>
-            <div className="range-slider__track"></div>
-            <div className="range-slider__fill" style={{width: `${getPercentage(internalValue)}%`}}></div>
-            <div className="range-slider__thumb" style={{left: `${getPercentage(internalValue)}%`}}>
-                <div className="range-slider__tooltip">{internalValue}</div>
+            <div className="range-slider" ref={sliderRef} onMouseDown={startDrag} onTouchStart={startDrag}>
+                <div className="range-slider__track"></div>
+                <div className="range-slider__fill" style={{width: `${getPercentage(internalValue)}%`}}></div>
+                <div className="range-slider__thumb" style={{left: `${getPercentage(internalValue)}%`}}>
+                    <div className="range-slider__tooltip">{internalValue}</div>
+                </div>
             </div>
-        </div>
     );
 };
 

@@ -1,143 +1,143 @@
 .search {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-
-  &__nav {
     position: relative;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 15px;
-
-    padding: 15px;
-    margin-bottom: 50px;
-
     width: 100%;
 
-    background: var(--foreground-color);
-    border-radius: var(--border-radius);
-  }
+    &__nav {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
 
-  &__nav-item {
-    padding: 15px;
+        padding: 15px;
+        margin-bottom: 50px;
 
-    width: 200px;
-    height: 100%;
+        width: 100%;
 
-    background: var(--background-color);
-    border-radius: var(--border-radius);
-
-    transition: background 0.2s ease;
-
-    &.active {
-      background: var(--primary-color);
+        background: var(--foreground-color);
+        border-radius: var(--border-radius);
     }
 
-    &:hover {
-      background: var(--secondary-color);
+    &__nav-item {
+        padding: 15px;
+
+        width: 200px;
+        height: 100%;
+
+        background: var(--background-color);
+        border-radius: var(--border-radius);
+
+        transition: background 0.2s ease;
+
+        &.active {
+            background: var(--primary-color);
+        }
+
+        &:hover {
+            background: var(--secondary-color);
+        }
     }
-  }
 }
 
 .filter-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
 }
 
 .search-bar__container {
-  width: 100%;
+    width: 100%;
 }
 
 .search-bar__input {
-  padding: 15px;
+    padding: 15px;
 
-  width: 90%;
+    width: 90%;
 
-  background-color: var(--foreground-color);
-  border-top-left-radius: var(--border-radius);
-  border-bottom-left-radius: var(--border-radius);
-  border: solid 2px transparent;
+    background-color: var(--foreground-color);
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+    border: solid 2px transparent;
 
-  transition: border 0.2s ease;
+    transition: border 0.2s ease;
 
-  outline: none !important;
+    outline: none !important;
 
-  &:focus {
-    border: solid 2px var(--accent-color);
-  }
+    &:focus {
+        border: solid 2px var(--accent-color);
+    }
 }
 
 .search-bar__button {
-  width: 10%;
-  height: 100%;
+    width: 10%;
+    height: 100%;
 
-  background-color: var(--primary-color);
-  border-top-right-radius: var(--border-radius);
-  border-bottom-right-radius: var(--border-radius);
-  border: solid 2px transparent;
+    background-color: var(--primary-color);
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    border: solid 2px transparent;
 
-  transition: background-color 0.2s ease, border 0.2s ease;
+    transition: background-color 0.2s ease, border 0.2s ease;
 
-  &:hover {
-    background-color: var(--secondary-color);
-  }
+    &:hover {
+        background-color: var(--secondary-color);
+    }
 }
 
 .options {
-  &__container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 15px;
+    &__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 15px;
 
-    width: 100%;
-  }
-
-  &__slice {
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-    width: 100%;
-  }
-
-  &__section {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-
-    padding: 15px;
-
-    width: 100%;
-
-    background-color: var(--foreground-color);
-    border-radius: var(--border-radius);
-
-    &__dimensions {
-      display: flex;
-      flex-direction: row;
-      gap: 15px;
-      align-items: flex-start;
-      justify-content: left;
+        width: 100%;
     }
-  }
+
+    &__slice {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        width: 100%;
+    }
+
+    &__section {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        padding: 15px;
+
+        width: 100%;
+
+        background-color: var(--foreground-color);
+        border-radius: var(--border-radius);
+
+        &__dimensions {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            align-items: flex-start;
+            justify-content: left;
+        }
+    }
 }
 
 .section-divider {
-  position: relative;
-  display: block;
+    position: relative;
+    display: block;
 
-  margin: 15px;
+    margin: 15px;
 
-  width: 100%;
-  height: 4px;
-  background: var(--primary-color);
-  border-radius: 50%;
+    width: 100%;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 50%;
 }

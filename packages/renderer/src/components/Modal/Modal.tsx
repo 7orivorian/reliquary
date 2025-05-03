@@ -11,17 +11,17 @@ export default function Modal({children, onCloseRequested}: {
         throw new Error('Modal root element not found');
     }
     return createPortal(
-        (
-            <div className="modal__overlay" onClick={() => {
-                if (onCloseRequested) {
-                    onCloseRequested();
-                }
-            }}>
-                <div className="modal__container" onClick={(e) => e.stopPropagation()}>
-                    {children}
-                </div>
-            </div>
-        ),
-        modalRoot,
+            (
+                    <div className="modal__overlay" onClick={() => {
+                        if (onCloseRequested) {
+                            onCloseRequested();
+                        }
+                    }}>
+                        <div className="modal__container" onClick={(e) => e.stopPropagation()}>
+                            {children}
+                        </div>
+                    </div>
+            ),
+            modalRoot,
     );
 }

@@ -1,90 +1,90 @@
 .tag-filter {
-  &__container {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 100%;
-  }
-
-  &__input {
-    padding: 7px 15px;
-    width: 100%;
-    background: var(--background-color);
-    border-radius: var(--border-radius);
-  }
-
-  &__tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-  }
-
-  &__tag {
-    padding: 0.5rem;
-
-    color: var(--text-color);
-    background: var(--background-color);
-    border-radius: var(--border-radius);
-
-    cursor: pointer;
-
-    transition: background 0.2s ease, color 0.2s ease;
-
-    &:hover {
-      color: var(--text-color-light);
-      background: var(--primary-color);
+    &__container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
     }
 
-    &.included {
-      color: var(--text-color-light);
-      background: var(--success-color-50);
-
-      &:hover {
-        background: var(--success-color);
-      }
+    &__input {
+        padding: 7px 15px;
+        width: 100%;
+        background: var(--background-color);
+        border-radius: var(--border-radius);
     }
 
-    &.excluded {
-      color: var(--text-color-light);
-      background: var(--error-color-50);
-
-      &:hover {
-        background: var(--error-color);
-      }
+    &__tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
     }
-  }
 
-  &__display-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
+    &__tag {
+        padding: 0.5rem;
 
-    width: 100%;
+        color: var(--text-color);
+        background: var(--background-color);
+        border-radius: var(--border-radius);
 
-    &__button {
-      width: 100%;
+        cursor: pointer;
 
-      font-size: small;
-      padding: 0.5rem;
-      background: var(--background-color);
-      border-radius: var(--border-radius);
+        transition: background 0.2s ease, color 0.2s ease;
 
-      transition: background 0.2s ease;
+        &:hover {
+            color: var(--text-color-light);
+            background: var(--primary-color);
+        }
 
-      &:hover {
-        background: var(--background-hover-color);
-      }
+        &.included {
+            color: var(--text-color-light);
+            background: var(--success-color-50);
 
-      &:active {
-        background: var(--background-color-active);
-      }
+            &:hover {
+                background: var(--success-color);
+            }
+        }
+
+        &.excluded {
+            color: var(--text-color-light);
+            background: var(--error-color-50);
+
+            &:hover {
+                background: var(--error-color);
+            }
+        }
     }
-  }
 
-  &__more {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+    &__display-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+
+        width: 100%;
+
+        &__button {
+            width: 100%;
+
+            font-size: small;
+            padding: 0.5rem;
+            background: var(--background-color);
+            border-radius: var(--border-radius);
+
+            transition: background 0.2s ease;
+
+            &:hover {
+                background: var(--background-hover-color);
+            }
+
+            &:active {
+                background: var(--background-color-active);
+            }
+        }
+    }
+
+    &__more {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }

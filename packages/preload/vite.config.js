@@ -1,5 +1,5 @@
-import {resolveModuleExportNames} from 'mlly';
-import {getChromeMajorVersion} from '@app/electron-versions';
+import { resolveModuleExportNames } from 'mlly';
+import { getChromeMajorVersion } from '@app/electron-versions';
 
 export default /**
  * @type {import('vite').UserConfig}
@@ -66,10 +66,10 @@ function mockExposed() {
                 });
                 return exportedNames.reduce((s, key) => {
                     return (
-                        s +
-                        (key === 'default'
-                            ? `export default globalThis['${btoa(key)}'];\n`
-                            : `export const ${key} = globalThis['${btoa(key)}'];\n`)
+                      s +
+                      (key === 'default'
+                        ? `export default globalThis['${btoa(key)}'];\n`
+                        : `export const ${key} = globalThis['${btoa(key)}'];\n`)
                     );
                 }, '');
             }

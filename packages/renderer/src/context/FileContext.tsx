@@ -28,9 +28,9 @@ export const FileProvider: React.FC<ProviderProps> = ({children}: ProviderProps)
     };
 
     return (
-        <FileContext.Provider value={{files, setFiles, clearFiles}}>
-            {children}
-        </FileContext.Provider>
+            <FileContext.Provider value={{files, setFiles, clearFiles}}>
+                {children}
+            </FileContext.Provider>
     );
 };
 

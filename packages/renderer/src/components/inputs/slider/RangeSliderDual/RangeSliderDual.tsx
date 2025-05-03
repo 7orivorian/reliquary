@@ -85,35 +85,35 @@ export default function RangeSliderDual({
     };
 
     return (
-        <div className="range-slider-dual" ref={sliderRef} onClick={handleTrackClick}>
-            <div className="range-slider-dual__track"></div>
-            <div
-                className="range-slider-dual__fill"
-                style={{
-                    left: `${getPercentage(minThumb)}%`,
-                    width: `${getPercentage(maxThumb) - getPercentage(minThumb)}%`,
-                }}
-            ></div>
+            <div className="range-slider-dual" ref={sliderRef} onClick={handleTrackClick}>
+                <div className="range-slider-dual__track"></div>
+                <div
+                        className="range-slider-dual__fill"
+                        style={{
+                            left: `${getPercentage(minThumb)}%`,
+                            width: `${getPercentage(maxThumb) - getPercentage(minThumb)}%`,
+                        }}
+                ></div>
 
-            {/* Min Thumb */}
-            <div
-                className="range-slider-dual__thumb"
-                style={{left: `${getPercentage(minThumb)}%`}}
-                onMouseDown={(e) => startDrag(e, true)}
-                onTouchStart={(e) => startDrag(e, true)}
-            >
-                <div className="range-slider-dual__tooltip">{minThumb}</div>
-            </div>
+                {/* Min Thumb */}
+                <div
+                        className="range-slider-dual__thumb"
+                        style={{left: `${getPercentage(minThumb)}%`}}
+                        onMouseDown={(e) => startDrag(e, true)}
+                        onTouchStart={(e) => startDrag(e, true)}
+                >
+                    <div className="range-slider-dual__tooltip">{minThumb}</div>
+                </div>
 
-            {/* Max Thumb */}
-            <div
-                className="range-slider-dual__thumb"
-                style={{left: `${getPercentage(maxThumb)}%`}}
-                onMouseDown={(e) => startDrag(e, false)}
-                onTouchStart={(e) => startDrag(e, false)}
-            >
-                <div className="range-slider-dual__tooltip">{maxThumb}</div>
+                {/* Max Thumb */}
+                <div
+                        className="range-slider-dual__thumb"
+                        style={{left: `${getPercentage(maxThumb)}%`}}
+                        onMouseDown={(e) => startDrag(e, false)}
+                        onTouchStart={(e) => startDrag(e, false)}
+                >
+                    <div className="range-slider-dual__tooltip">{maxThumb}</div>
+                </div>
             </div>
-        </div>
     );
 }

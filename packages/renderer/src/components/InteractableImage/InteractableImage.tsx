@@ -14,8 +14,8 @@ export default function InteractableImage({src, alt}: InteractableImageProps) {
     };
 
     return (
-        <div className={`image-container ${isZoomed ? 'zoomed' : ''}`} onClick={toggleZoom}>
-            <img src={src} alt={alt} className="zoomable-image" />
-        </div>
+            <div className={`image-container ${isZoomed ? 'zoomed' : ''}`} onClick={toggleZoom}>
+                <img src={src} alt={alt} className="zoomable-image"/>
+            </div>
     );
 }

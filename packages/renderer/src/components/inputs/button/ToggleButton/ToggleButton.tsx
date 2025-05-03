@@ -26,10 +26,10 @@ export default function ToggleButton({className, text, onText, offText, value, d
     };
 
     return (
-        <button
-            className={`${className} ${val ? 'on' : 'off'}`}
-            disabled={disabled}
-            onClick={handleClick}
-        >{text ? text : (val ? onText : offText)}</button>
+            <button
+                    className={`${className} ${val ? 'on' : 'off'}`}
+                    disabled={disabled}
+                    onClick={handleClick}
+            >{text ? text : (val ? onText : offText)}</button>
     );
 }
