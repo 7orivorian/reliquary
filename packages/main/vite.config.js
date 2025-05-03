@@ -7,27 +7,27 @@ export default /**
  * @see https://vitejs.dev/config/
  */
 ({
-  build: {
-    ssr: true,
-    sourcemap: 'inline',
-    outDir: 'dist',
-    assetsDir: '.',
-    target: `node${getNodeMajorVersion()}`,
-    lib: {
-      entry: 'src/index.ts',
-      formats: ['es'],
+    build: {
+        ssr: true,
+        sourcemap: 'inline',
+        outDir: 'dist',
+        assetsDir: '.',
+        target: `node${getNodeMajorVersion()}`,
+        lib: {
+            entry: 'src/index.ts',
+            formats: ['es'],
+        },
+        rollupOptions: {
+            output: {
+                entryFileNames: '[name].js',
+            },
+        },
+        emptyOutDir: true,
+        reportCompressedSize: false,
     },
-    rollupOptions: {
-      output: {
-        entryFileNames: '[name].js',
-      },
-    },
-    emptyOutDir: true,
-    reportCompressedSize: false,
-  },
-  plugins: [
-    handleHotReload(),
-  ],
+    plugins: [
+        handleHotReload(),
+    ],
 });
 
 
@@ -37,55 +37,55 @@ export default /**
  */
 function handleHotReload() {
 
-  /** @type {ChildProcess} */
-  let electronApp = null;
+    /** @type {ChildProcess} */
+    let electronApp = null;
 
-  /** @type {import('vite').ViteDevServer|null} */
-  let rendererWatchServer = null;
+    /** @type {import('vite').ViteDevServer|null} */
+    let rendererWatchServer = null;
 
-  return {
-    name: '@app/main-process-hot-reload',
+    return {
+        name: '@app/main-process-hot-reload',
 
-    config(config, env) {
-      if (env.mode !== 'development') {
-        return;
-      }
+        config(config, env) {
+            if (env.mode !== 'development') {
+                return;
+            }
 
-      const rendererWatchServerProvider = config.plugins.find(p => p.name === '@app/renderer-watch-server-provider');
-      if (!rendererWatchServerProvider) {
-        throw new Error('Renderer watch server provider not found');
-      }
+            const rendererWatchServerProvider = config.plugins.find(p => p.name === '@app/renderer-watch-server-provider');
+            if (!rendererWatchServerProvider) {
+                throw new Error('Renderer watch server provider not found');
+            }
 
-      rendererWatchServer = rendererWatchServerProvider.api.provideRendererWatchServer();
+            rendererWatchServer = rendererWatchServerProvider.api.provideRendererWatchServer();
 
-      process.env.VITE_DEV_SERVER_URL = rendererWatchServer.resolvedUrls.local[0];
+            process.env.VITE_DEV_SERVER_URL = rendererWatchServer.resolvedUrls.local[0];
 
-      return {
-        build: {
-          watch: {},
+            return {
+                build: {
+                    watch: {},
+                },
+            };
         },
-      };
-    },
 
-    writeBundle() {
-      if (process.env.NODE_ENV !== 'development') {
-        return;
-      }
+        writeBundle() {
+            if (process.env.NODE_ENV !== 'development') {
+                return;
+            }
 
-      /** Kill electron if a process already exists */
-      if (electronApp !== null) {
-        electronApp.removeListener('exit', process.exit);
-        electronApp.kill('SIGINT');
-        electronApp = null;
-      }
+            /** Kill electron if a process already exists */
+            if (electronApp !== null) {
+                electronApp.removeListener('exit', process.exit);
+                electronApp.kill('SIGINT');
+                electronApp = null;
+            }
 
-      /** Spawn a new electron process */
-      electronApp = spawn(String(electronPath), ['--inspect', '.'], {
-        stdio: 'inherit',
-      });
+            /** Spawn a new electron process */
+            electronApp = spawn(String(electronPath), ['--inspect', '.'], {
+                stdio: 'inherit',
+            });
 
-      /** Stops the watch script when the application has been quit */
-      electronApp.addListener('exit', process.exit);
-    },
-  };
+            /** Stops the watch script when the application has been quit */
+            electronApp.addListener('exit', process.exit);
+        },
+    };
 }

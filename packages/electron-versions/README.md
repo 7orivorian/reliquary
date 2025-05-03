@@ -18,11 +18,11 @@ Import the functions you need from the package:
 
 ```javascript
 import {
-  getElectronVersions,
-  getChromeVersion,
-  getNodeVersion,
-  getChromeMajorVersion,
-  getNodeMajorVersion
+    getElectronVersions,
+    getChromeVersion,
+    getNodeVersion,
+    getChromeMajorVersion,
+    getNodeMajorVersion
 } from '@app/electron-versions';
 
 // Example usage
@@ -46,20 +46,22 @@ console.log('Node.js Major Version:', getNodeMajorVersion());
 An example of how you might use this package in a Vite configuration:
 
 ```javascript
-import { getChromeMajorVersion } from '@app/electron-versions';
+import {getChromeMajorVersion} from '@app/electron-versions';
 
 export default {
-  build: {
-    target: `chrome${getChromeMajorVersion()}`,
-    // other Vite configurations...
-  },
-  // other configurations...
+    build: {
+        target: `chrome${getChromeMajorVersion()}`,
+        // other Vite configurations...
+    },
+    // other configurations...
 };
 ```
 
 ### Explanation of `target`
 
-The `target` parameter in Vite specifies the browser or environment versions that the output should be compatible with. In the provided example, `target: chrome${getChromeMajorVersion()}` ensures that the build output is compatible with the specific major version of Chromium that is bundled with your Electron application. This can help optimize the final bundle and ensure compatibility within the Electron environment.
+The `target` parameter in Vite specifies the browser or environment versions that the output should be compatible with. In the provided example, `target: chrome${getChromeMajorVersion()}` ensures that
+the build output is compatible with the specific major version of Chromium that is bundled with your Electron application. This can help optimize the final bundle and ensure compatibility within the
+Electron environment.
 
 ## License
 
